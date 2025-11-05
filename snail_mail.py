@@ -12,7 +12,7 @@ email = input("Your email address: ")
 # "he.llo@.world.com" => The domain cannot start with a '.' character!
 # "hello@world.com"   => Valid email address :)
 
-
+'''
 length_of_email = len(email)
 number_of_at_characters = email.count("@")
 number_of_dot_characters = email.count(".")
@@ -36,3 +36,11 @@ error_message_invalid_username = "The username cannot start with a '.' character
 
 ok_message = "Valid email address :)"
 is_valid = True
+'''
+
+# count()	Returns the number of times a specified value occurs in a string
+#index()	Searches the string for a specified value and returns the position of where it was found
+#find()	Searches the string for a specified value and returns the position of where it was found
+#splitlines()	Splits the string at line breaks and returns a list
+#split()	Splits the string at the specified separator, and returns a list
+#startswith()	Returns true if the string starts with the specified value
