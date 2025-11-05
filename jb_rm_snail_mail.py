@@ -1,44 +1,67 @@
-email = str(input('Please enter you email'))
+email = str(input('Please enter you email\n'))
+
+atfinder= email.find("@")
+if atfinder != -1 and atfinder == 1:
+    uname_dom = email.split('@')
+    uname = uname_dom[0]
+    dom = uname_dom[1]
+    sdom = dom.split('.')
+    adress_dom = sdom[0]
+    toplevel_dom = sdom[1]
+
+error_message_no_at = "An email address has to contain a '@' character!"
+error_message_too_many_at = "An email address cannot contain more than one '@' characters!"
+error_message_no_dot = "An email address has to contain at least one '.' character!"
+error_message_no_username = "The username before the '@' character cannot be empty!"
+error_message_no_dot_in_domain = "The domain has to contain at least one '.' character!"
+error_message_no_server_name = "The domain cannot start with a '.' character!"
+error_message_no_tld = "The top-level domain cannot be empty!"
+error_message_short_tld = "The top-level domain has to be at least two characters long!"
+error_message_no_domain = "The domain after the '@' character cannot be empty!"
+error_message_invalid_username = "The username cannot start with a '.' character!"
+error_message_no_adress_name = "The adress cannot start with a '.' character!"
+error_message_empty_address = "The address cannot be empty"
+
+ok_message = "Valid email address :)"
+
+
 
 if email.count('@') < 1:
-    print ("An email address has to contain a '@' character!")
+    print (error_message_no_at)
     
-if email.count('@') > 1:
-    print ("An email address cannot contain more than one '@' characters!")
+elif email.count('@') > 1:
+    print (error_message_too_many_at)
 
-uname_dom = email.split('@')
-uname = uname_dom[0]
-dom = uname_dom[1]
-if uname == '':
-    print("The username before the '@' character cannot be empty!")
+elif uname == '':
+    print(error_message_no_username)
 
-if dom == '':
-    print("The domain after the '@' character cannot be empty!")
+elif dom == '':
+    print(error_message_no_domain)
 
-if email.count('.') < 1:
-    print("An email address has to contain at least one '.' character!")
+elif email.count('.') < 1:
+    print(error_message_no_dot)
 
-if dom.count('.') < 1:
-    print("The domain has to contain at least one '.' character!")
+elif dom.count('.') < 1:
+    print(error_message_no_dot_in_domain)
 
-sdom = dom.split('.')
-adress_dom = sdom[0]
-toplevel_dom = sdom[1]
+elif toplevel_dom == '':
+    print(error_message_no_tld)
 
-if toplevel_dom == '':
-    print("The top-level domain cannot be empty!")
+elif adress_dom == '':
+    print(error_message_empty_address)
 
-if toplevel_dom.count < 2:
-    print("The top-level domain has to be at least two characters long!")
+elif len(toplevel_dom) < 2:
+    print(error_message_short_tld)
 
-if uname.startswith('.'):
-    print("The username cannot start with a '.' character!")
+elif uname.startswith('.'):
+    print(error_message_invalid_username)
 
-if toplevel_dom.startswith('.'):
-    print("The domain cannot start with a '.' character!")
+elif toplevel_dom.startswith('.'):
+    print(error_message_no_server_name)
 
-if adress_dom.startswith('.'):
-    print("The adress cannot start with a '.' character!")
+elif adress_dom.startswith('.'):
+    print(error_message_no_adress_name)
 
-
+else:
+    print(ok_message)
 
